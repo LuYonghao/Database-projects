@@ -1,0 +1,13 @@
+select a.login, a.name, a.race, coalesce(sum(b.max), 0) as earned, count(b.max) as quests
+from (select a.login, a.name, a.race, b. realm, b.day, b. theme
+	from avatar a left join(select a.login, a.name, a.realm, a.day, b.theme 
+				from visit a, actor b
+				where a.login = b.login and a.day=b.day) b on a.login = b.login and
+	a.name = b.name) a left join (select a.theme, a.realm, a.day, max(b.sql) as max
+					from loot a join treasure b on b.treasure = a.treasure
+					where a.login is not null
+					group by a.theme, a.realm, a.day
+					order by a.day) b on a.theme = b.theme and
+	a.day = b.day and a.realm = b.realm
+	group by a.login, a.name, a.race
+	order by a.login, a.name;

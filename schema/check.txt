@@ -1,0 +1,10 @@
+    sin    |        time         | testtype |       result       | testcentre | offered 
+-----------+---------------------+----------+--------------------+------------+---------
+ 111111111 | 2020-10-19 11:00:00 | Type A   | stayhome           | Centre1    | yes
+ 122222222 | 2020-10-24 10:00:00 | Type B   | stayhome           | Centre3    | no
+ 122222222 | 2020-10-31 10:00:00 | Type B   | stayhomeevenlonger | Centre1    | yes
+ 133333333 | 2020-10-20 11:00:00 | Type C   | stayhomelonger     | Centre3    | yes
+ 144444444 | 2020-10-22 10:00:00 | Type A   | stayhomelonger     | Centre2    | no
+ 155555555 | 2020-10-20 11:00:00 | Type B   | stayhome           | Centre3    | no
+(6 rows)
+

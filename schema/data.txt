@@ -1,0 +1,122 @@
+insert into Person (sin, name, address, phone) values
+(111111111,'peter1','201 Assinibione rd', '6478869230'),
+(122222222,'Peter2','202 Richmond rd', '6572283929'),
+(133333333,'Peter3','203 Peepee rd', '6575679929'),
+(144444444,'Peter4','204 MidtermHard rd', '6472288099'),
+(155555555,'Peter5','205 AssignmentLate rd', '6531654929');
+
+insert into TestType (testType) values
+('Type A'),
+('Type B'),
+('Type C');
+
+insert into Place(name, gps, description, address) values
+('Centre1', 'location 1', 'description 1', 'some address 1'),
+('Centre2', 'location 2', 'description 2', 'some address 2'),
+('Centre3', 'location 3', 'description 3', 'some address 3'),
+('MathCentre', 'location Math', 'description MATH', 'some address M'),
+('EnglishCentre', 'location English', 'description EN', 'some address E'),
+('EECSCentre', 'location EECS', 'description EECS', 'some address CS'),
+('HistoryCentre', 'location HIS', 'description HIST', 'some address H');
+
+insert into Method (method) values
+('car'),
+('bike'),
+('walk'),
+('registry sign in'),
+('registry sign out'),
+('taxi');
+
+insert into TimeSlot (time) values
+('2020-10-19 10:00:00'),
+('2020-10-19 10:15:00'),
+('2020-10-19 11:00:00'),
+('2020-10-19 11:15:00'),
+('2020-10-20 10:00:00'),
+('2020-10-20 11:00:00'),
+('2020-10-20 11:15:00'),
+('2020-10-20 11:30:00'),
+('2020-10-21 10:00:00'),
+('2020-10-21 11:00:00'),
+('2020-10-21 11:15:00'),
+('2020-10-22 10:00:00'),
+('2020-10-22 10:15:00'),
+('2020-10-22 11:00:00'),
+('2020-10-24 10:00:00'),
+('2020-10-24 10:15:00'),
+('2020-10-26 17:00:00'),
+('2020-10-27 10:00:00'),
+('2020-10-30 10:00:00'),
+('2020-10-31 10:15:00'),
+('2020-10-30 11:00:00'),
+('2020-10-30 11:15:00'),
+('2020-10-31 10:00:00'),
+('2020-10-31 11:30:00'),
+('2020-10-31 11:45:00');
+
+insert into Action (action) values
+('stayhome'),
+('stayhomelonger'),
+('stayhomeevenlonger');
+
+insert into Recon (sin, method, placeName, time) values
+(111111111, 'registry sign in', 'Centre1', '2020-10-19 10:00:00'),
+(111111111, 'registry sign out', 'Centre1', '2020-10-19 11:15:00'),
+(111111111, 'bike', 'EnglishCentre', '2020-10-20 10:00:00'),
+(111111111, 'car', 'EECSCentre', '2020-10-21 10:00:00'),
+(111111111, 'car', 'MathCentre', '2020-10-22 10:00:00'),
+(111111111, 'taxi', 'EECSCentre', '2020-10-31 11:30:00'),
+(122222222, 'walk', 'HistoryCentre', '2020-10-21 10:00:00'),
+(122222222, 'registry sign in', 'Centre3', '2020-10-24 10:00:00'),
+(122222222, 'registry sign out', 'Centre3', '2020-10-24 10:15:00'),
+(122222222, 'car', 'EECSCentre', '2020-10-27 10:00:00'),
+(122222222, 'bike', 'MathCentre', '2020-10-30 10:00:00'),
+(122222222, 'registry sign in', 'Centre1',  '2020-10-31 10:00:00'),
+(122222222, 'registry sign out', 'Centre1',  '2020-10-31 10:15:00'),
+(133333333, 'taxi', 'HistoryCentre', '2020-10-19 10:00:00'),
+(133333333, 'registry sign in', 'Centre3', '2020-10-20 10:00:00'),
+(133333333, 'registry sign out', 'Centre3', '2020-10-20 11:30:00'),
+(133333333, 'car', 'MathCentre', '2020-10-21 10:00:00'),
+(133333333, 'bike', 'EECSCentre', '2020-10-24 10:00:00'),
+(144444444, 'taxi', 'HistoryCentre', '2020-10-21 10:00:00'),
+(144444444, 'registry sign in', 'Centre2', '2020-10-22 10:00:00'),
+(144444444, 'registry sign out', 'Centre2', '2020-10-22 10:15:00'),
+(144444444, 'bike', 'EnglishCentre', '2020-10-22 11:00:00'),
+(144444444, 'bike', 'HistoryCentre', '2020-10-26 17:00:00'),
+(155555555, 'registry sign in', 'Centre3', '2020-10-20 10:00:00'),
+(155555555, 'registry sign out', 'Centre3' , '2020-10-20 11:30:00'),
+(155555555, 'walk', 'EnglishCentre', '2020-10-21 11:00:00'),
+(155555555, 'car', 'MathCentre', '2020-10-30 11:00:00'),
+(155555555, 'bike', 'EECSCentre', '2020-10-31 11:30:00'),
+(155555555, 'taxi', 'MathCentre', '2020-10-31 11:45:00');
+
+
+insert into TestCentre (name) values
+('Centre1'),
+('Centre2'),
+('Centre3');
+
+insert into Test (sin, time, testType, result, testCentre) values
+(111111111, '2020-10-19 11:00:00', 'Type A', 'stayhome', 'Centre1'),
+(122222222, '2020-10-24 10:00:00', 'Type B', 'stayhome', 'Centre3'),
+(122222222, '2020-10-31 10:00:00', 'Type B', 'stayhomeevenlonger', 'Centre1'),
+(133333333, '2020-10-20 11:00:00', 'Type C', 'stayhomelonger', 'Centre3'),
+(144444444, '2020-10-22 10:00:00', 'Type A', 'stayhomelonger', 'Centre2'),
+(155555555, '2020-10-20 11:00:00', 'Type B', 'stayhome', 'Centre3');
+
+
+insert into Offer(testType, testCentre) values
+('Type A', 'Centre1'),
+('Type B', 'Centre1'),
+('Type B', 'Centre2'),
+('Type C', 'Centre3');
+
+insert into bubble(person1, person2) values
+(111111111,122222222),
+(111111111,133333333),
+(111111111,144444444),
+(122222222,133333333),
+(122222222,155555555),
+(133333333,144444444),
+(133333333,155555555),
+(144444444,155555555);

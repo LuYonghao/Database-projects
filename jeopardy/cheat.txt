@@ -1,0 +1,7 @@
+select actor1.login, player.name, actor1.day, actor1.realm, actor1.theme
+from actor as actor1, actor as actor2, player
+where actor1.theme <> actor2.theme and
+	actor1.login = actor2.login and 
+	actor1.day = actor2.day and
+	player.login =  actor1.login and
+	player.login = actor2.login;

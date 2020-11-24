@@ -1,0 +1,102 @@
+create table Person(
+    sin  integer  not null,
+    name  varchar(20),
+    address  varchar(120),
+    phone  bigint,
+    constraint person_pk
+        primary key (sin)
+);
+
+create table Method(
+    method  varchar(30)  not null,
+    constraint method_pk
+        primary key (method)
+    
+);
+
+create table TimeSlot(
+    time timestamp  not null,
+    constraint timeSlot_pk
+        primary key (time)
+);
+
+create table Action(
+    action  varchar(50)  not null,
+    constraint action_pk
+        primary key (action)
+);
+
+create table TestType(
+    testType  varchar(70)  not null,
+    constraint testType_pk
+        primary key (testType)
+);
+
+
+create table Place(
+    name  varchar(20)  not null,
+    gps  varchar(50),
+    description  varchar(300),
+    address  varchar(120),
+    constraint place_pk
+        primary key (name)
+);
+
+create table TestCentre(
+    name  varchar(20)  not null,
+    constraint testCentre_pk
+        primary key (name),
+    constraint testCentre_fk
+        foreign key (name) references Place
+);
+
+create table Recon(
+    sin  integer  not null,
+    method  varchar(30)  not null,
+    placeName  varchar(20)  not null,
+    time timestamp  not null,
+    constraint recon_fk_person
+        foreign key (sin) references Person,
+    constraint recon_fk_method
+        foreign key (method) references Method,
+    constraint recon_fk_timeSlot
+        foreign key (time) references TimeSlot,
+    constraint recon_fk_place
+        foreign key (placeName) references Place (name)
+);
+
+create table Test(
+    sin  serial  not null,
+    time  timestamp  not null,
+    testType  varchar(70)  not null,
+    result  varchar(50)  not null,
+    testCentre  varchar(20)  not null,
+    constraint test_fk_testCentre
+        foreign key (testCentre) references TestCentre(name),
+    constraint test_fk_person
+        foreign key (sin) references Person,
+    constraint test_fk_testType
+        foreign key (testType) references TestType,
+    constraint recon_fk_result
+        foreign key (result) references Action (action),
+    constraint recon_fk_time
+        foreign key (time) references TimeSlot
+);
+
+create table Offer(
+    testType  varchar(70)  not null,
+    testCentre  varchar(20)  not null,
+    constraint offer_fk_testType
+        foreign key (testType) references TestType,
+    constraint recon_fk_testCentre
+        foreign key (testCentre) references TestCentre (name)
+);
+
+create table bubble(
+    person1  integer  not null,
+    person2  integer  not null,
+    constraint buble_fk_person1
+        foreign key (person1) references Person (sin),
+    constraint buble_fk_person2
+        foreign key (person2) references Person (sin)
+);
